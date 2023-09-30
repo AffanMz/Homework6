@@ -1,0 +1,62 @@
+-- Query Create Tabel Barang & Kategori Barang
+-- Query Create Tabel Barang & Kategori Barang
+-- Query Create Tabel Barang & Kategori Barang
+
+-- Tabel Kategori Barang
+CREATE TABLE kategori_barang (
+    kategori_id INT PRIMARY KEY,
+    nama_kategori VARCHAR(255)
+);
+
+-- Tabel Barang
+CREATE TABLE barang (
+    barang_id INT PRIMARY KEY,
+    nama_barang VARCHAR(255),
+    harga_barang DECIMAL(10, 2),
+    stok_barang INT,
+    kategori_id INT REFERENCES kategori_barang(kategori_id)
+);
+
+-- Query Tabel Barang
+-- Query Tabel Barang
+-- Query Tabel Barang
+
+-- Select semua barang
+SELECT * FROM barang;
+
+-- Select barang berdasarkan nama
+SELECT * FROM barang WHERE nama_barang = 'NamaBarang';
+
+-- Insert barang baru
+INSERT INTO barang (nama_barang, harga_barang, stok_barang, kategori_id)
+VALUES ('BarangBaru', 10.99, 50, 1);
+
+-- Update harga barang
+UPDATE barang SET harga_barang = 9.99 WHERE nama_barang = 'NamaBarang';
+
+-- Query Tabel Kategori Barang 
+-- Query Tabel Kategori Barang
+-- Query Tabel Kategori Barang
+
+-- Select semua kategori barang
+SELECT * FROM kategori_barang;
+
+-- Select kategori barang berdasarkan nama
+SELECT * FROM kategori_barang WHERE nama_kategori = 'NamaKategori';
+
+-- Insert kategori barang baru
+INSERT INTO kategori_barang (nama_kategori)
+VALUES ('KategoriBaru');
+
+-- Update nama kategori barang
+UPDATE kategori_barang SET nama_kategori = 'NamaKategoriBaru' WHERE kategori_id = 1;
+
+-- Query Join Tabel
+-- Query Join Tabel
+-- Query Join Tabel 
+
+-- Select barang beserta kategori barang
+SELECT barang.nama_barang, barang.harga_barang, kategori_barang.nama_kategori
+FROM barang
+JOIN kategori_barang ON barang.kategori_id = kategori_barang.kategori_id;
+
